@@ -82,10 +82,10 @@ pip install -r requirements.txt
 ## Citation
 ```bibtex
 @article{yoon2025cascaded,
-  title   = {Cascaded 3D Diffusion Models for Whole-body {¹⁸F}-FDG PET/CT Synthesis from Demographics},
-  author  = {Yoon, Siyeop and …},
-  journal = {arXiv preprint arXiv:2505.22489},
-  year    = {2025}
+  title={Cascaded 3D Diffusion Models for Whole-body 3D 18-F FDG PET/CT synthesis from Demographics},
+  author={Yoon, Siyeop and Song, Sifan and Jin, Pengfei and Tivnan, Matthew and Oh, Yujin and Kim, Sekeun and Wu, Dufan and Li, Xiang and Li, Quanzheng},
+  journal={arXiv preprint arXiv:2505.22489},
+  year={2025}
 }
 ```
 
