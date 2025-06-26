@@ -94,4 +94,5 @@ pip install -r requirements.txt
 - syoon5@mgh.harvard.edu  
 
 ## License
-See the [LICENSE](LICENSE) file for details.
+See the [LICENSE] files for under Training folder.
+
