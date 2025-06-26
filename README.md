@@ -70,13 +70,13 @@ pip install -r requirements.txt
    ```
 
 ## Figures
-![Pipeline overview](Resource/Main1.pdf)  
+![Pipeline overview](Resource/Picture1.png)  
 *Figure 1. Overview of the cascaded diffusion and flow modules.*
 
-![BMI distribution](Resource/BMIs.pdf)  
+![BMI distribution](Resource/Picture2.png)  
 *Figure 2. Dataset and generated cohort BMI distributions.*
 
-![Quantitative results](Resource/Graph.pdf)  
+![Quantitative results](Resource/Picture3.png)  
 *Figure 3. Performance comparison across model variants.*
 
 ## Citation
