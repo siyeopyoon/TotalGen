@@ -25,49 +25,6 @@ Resource/           Pipeline diagrams and result figures
 - imageio, imageio-ffmpeg, pyspng, pillow, nibabel, click, requests, tqdm, psutil  
 - See `requirements.txt` for exact versions  
 
-## Installation
-```bash
-git clone https://github.com/yourusername/TotalGen.git
-cd TotalGen
-python -m venv venv
-source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
-## Quick Start
-1. **Preprocess data**  
-   ```bash
-   cd 0_Preprocess
-   bash run_preprocessing.sh \
-     --input_dir /path/to/raw_data \
-     --output_dir /path/to/processed
-   ```
-2. **Train low-resolution diffusion**  
-   ```bash
-   cd ../1_Trainings
-   python train_diffusion.py --config config_lowres.yaml
-   ```
-3. **Train super-resolution flow**  
-   ```bash
-   python train_superres.py --config config_superres.yaml
-   ```
-4. **Run inference**  
-   ```bash
-   cd ../2_Tests
-   python infer.py \
-     --model_dir /path/to/checkpoints \
-     --demo_csv demographics.csv \
-     --output_dir results/
-   ```
-5. **Evaluate results**  
-   ```bash
-   cd ../3_Evaluations
-   python evaluate.py \
-     --pred_dir results/ \
-     --gt_dir ground_truth/ \
-     --metrics dice hausdorff
-   ```
 
 ## Figures
 ![Pipeline overview](Resource/Picture3.png)  
