@@ -1,5 +1,5 @@
 # Cascaded 3D Diffusion Models for Whole-body ¹⁸F-FDG PET/CT Synthesis
-
+**Link to full paper (PDF):** https://arxiv.org/pdf/2505.22489
 ## Abstract
 This repository implements a cascaded volumetric image synthesis pipeline that combines conditional diffusion and flow-based super-resolution modules to generate realistic whole-body ¹⁸F-FDG PET/CT scans from demographic variables (height, weight, sex, age). The approach proceeds from low-resolution diffusion-based generation to high-resolution refinement, enabling anatomy-preserving, demographically conditioned volumes. Comprehensive preprocessing, training, inference, and evaluation scripts facilitate reproduction and extension.
 
