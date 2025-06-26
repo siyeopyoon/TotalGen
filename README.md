@@ -1,53 +1,97 @@
-# TotalGen
+# Cascaded 3D Diffusion Models for Whole-body ¹⁸F-FDG PET/CT Synthesis
 
-<<<<<<< 0yasj1-codex/create-detailed-readme-files-for-folders
-Implementation of cascaded 3D diffusion models for whole-body 18F-FDG PET/CT synthesis from demographics as described in our [arXiv paper](https://arxiv.org/pdf/2505.22489).
+## Abstract
+This repository implements a cascaded volumetric image synthesis pipeline that combines conditional diffusion and flow-based super-resolution modules to generate realistic whole-body ¹⁸F-FDG PET/CT scans from demographic variables (height, weight, sex, age). The approach proceeds from low-resolution diffusion-based generation to high-resolution refinement, enabling anatomy-preserving, demographically conditioned volumes. Comprehensive preprocessing, training, inference, and evaluation scripts facilitate reproduction and extension.
 
-Contact: [yooneige@gmail.com](mailto:yooneige@gmail.com) or [syoon5@mgh.harvard.edu](mailto:syoon5@mgh.harvard.edu)
+## Features
+- Demographic conditioning on height, weight, sex, and age  
+- Two-stage generation: low-resolution diffusion → super-resolution flow  
+- Modular scripts for data handling, training, inference, and evaluation  
+- Quantitative metrics: Dice, Hausdorff, intensity statistics  
 
-## Overview
-The pipeline combines conditional diffusion and flow-based models in a cascaded architecture to synthesize paired PET/CT volumes. Training begins at a low spatial resolution and progressively refines predictions using super-resolution stages. The method is designed for demographic conditioning and generates realistic whole-body images.
+## Repository Structure
+```
+0_Preprocess/       Data conversion, segmentation, and intensity scaling
+1_Trainings/        Training scripts and configs for diffusion & flow modules
+2_Tests/            Inference utilities and shared runtime libraries
+3_Evaluations/      Evaluation metrics and statistical analysis
+Resource/           Pipeline diagrams and result figures
+```
 
-![Pipeline overview](Resource/Main1.pdf)
-*Figure 1. Diagram of the cascaded diffusion and flow modules.*
+## Requirements
+- Python 3.8 or later  
+- PyTorch 2.0+ with CUDA support  
+- NumPy, SciPy, scikit-learn, scikit-image  
+- imageio, imageio-ffmpeg, pyspng, pillow, nibabel, click, requests, tqdm, psutil  
+- See `requirements.txt` for exact versions  
 
-![BMI analysis](Resource/BMIs.pdf)
-*Figure 2. BMI distribution of the dataset and generated cohort.*
+## Installation
+```bash
+git clone https://github.com/yourusername/TotalGen.git
+cd TotalGen
+python -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+```
 
-![Performance graph](Resource/Graph.pdf)
-*Figure 3. Quantitative comparison across different model variants.*
+## Quick Start
+1. **Preprocess data**  
+   ```bash
+   cd 0_Preprocess
+   bash run_preprocessing.sh \
+     --input_dir /path/to/raw_data \
+     --output_dir /path/to/processed
+   ```
+2. **Train low-resolution diffusion**  
+   ```bash
+   cd ../1_Trainings
+   python train_diffusion.py --config config_lowres.yaml
+   ```
+3. **Train super-resolution flow**  
+   ```bash
+   python train_superres.py --config config_superres.yaml
+   ```
+4. **Run inference**  
+   ```bash
+   cd ../2_Tests
+   python infer.py \
+     --model_dir /path/to/checkpoints \
+     --demo_csv demographics.csv \
+     --output_dir results/
+   ```
+5. **Evaluate results**  
+   ```bash
+   cd ../3_Evaluations
+   python evaluate.py \
+     --pred_dir results/ \
+     --gt_dir ground_truth/ \
+     --metrics dice hausdorff
+   ```
 
-## Project Layout
-=======
-This repository accompanies the paper ["Cascaded 3D Diffusion Models for Whole-body 18F-FDG PET/CT Synthesis from Demographics"](https://arxiv.org/pdf/2505.22489). The overall workflow is illustrated in [Resource/Main1.pdf](Resource/Main1.pdf), while quantitative results are summarized in [Resource/BMIs.pdf](Resource/BMIs.pdf) and [Resource/Graph.pdf](Resource/Graph.pdf).
+## Figures
+![Pipeline overview](Resource/Main1.pdf)  
+*Figure 1. Overview of the cascaded diffusion and flow modules.*
 
-## Project Layout
+![BMI distribution](Resource/BMIs.pdf)  
+*Figure 2. Dataset and generated cohort BMI distributions.*
 
->>>>>>> main
-- **0_Preprocess** – data conversion, segmentation, and intensity scaling scripts.
-- **1_Trainings** – training configurations for cascaded diffusion and flow models.
-- **2_Tests** – inference utilities and shared runtime libraries.
-- **3_Evaluations** – segmentation-based evaluation and statistical analysis.
-<<<<<<< 0yasj1-codex/create-detailed-readme-files-for-folders
-- **Resource** – diagrams and result figures.
-=======
-- **Resource** – diagrams and result figures referenced throughout the READMEs.
->>>>>>> main
+![Quantitative results](Resource/Graph.pdf)  
+*Figure 3. Performance comparison across model variants.*
 
-All codes were verified locally before publication.
+## Citation
+```bibtex
+@article{yoon2025cascaded,
+  title   = {Cascaded 3D Diffusion Models for Whole-body {¹⁸F}-FDG PET/CT Synthesis from Demographics},
+  author  = {Yoon, Siyeop and …},
+  journal = {arXiv preprint arXiv:2505.22489},
+  year    = {2025}
+}
+```
 
-## Getting Started
-<<<<<<< 0yasj1-codex/create-detailed-readme-files-for-folders
-=======
+## Contact
+- yooneige@gmail.com  
+- syoon5@mgh.harvard.edu  
 
->>>>>>> main
-1. Follow the preprocessing steps in [0_Preprocess](0_Preprocess/README.md).
-2. Train the models as described in [1_Trainings](1_Trainings/README.md).
-3. Run inference using [2_Tests](2_Tests/README.md).
-4. Evaluate results with [3_Evaluations](3_Evaluations/README.md).
-
-<<<<<<< 0yasj1-codex/create-detailed-readme-files-for-folders
-See the [arXiv manuscript](https://arxiv.org/pdf/2505.22489) for detailed methodology and experimental setup.
-=======
-See the [arXiv manuscript](https://arxiv.org/pdf/2505.22489) for methodology and experimental details.
->>>>>>> main
+## License
+See the [LICENSE](LICENSE) file for details.
