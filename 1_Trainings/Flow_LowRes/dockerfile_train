@@ -1,0 +1,27 @@
+FROM python:3.11-slim-buster
+
+# Set the working directory
+WORKDIR /app
+
+# Create and activate a virtual environment
+RUN python -m venv venv
+RUN . venv/bin/activate
+
+# Install system packages
+RUN apt-get update && \
+    apt-get install -y python3 python3-pip
+
+# Install Python packages
+RUN pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+
+RUN pip3 install numpy matplotlib scikit-learn scikit-image click requests psutil tqdm imageio imageio-ffmpeg pyspng pillow nibabel flow_matching
+
+# Create a shared folder to be mounted with an external directory
+# The internal container path is /external
+RUN mkdir /external
+
+# Copy all files from the current directory to /app inside the container
+COPY . /app
+
+# Run the Python script
+CMD ["python3", "train_flow_3D.py"]
