@@ -19,11 +19,11 @@ Resource/           Pipeline diagrams and result figures
 ```
 
 ## Requirements
-- Python 3.8 or later  
+- Python 3.11 or later  
 - PyTorch 2.0+ with CUDA support  
 - NumPy, SciPy, scikit-learn, scikit-image  
 - imageio, imageio-ffmpeg, pyspng, pillow, nibabel, click, requests, tqdm, psutil  
-- See `requirements.txt` for exact versions  
+- See Dockerfile under training folder
 
 
 ## Figures
@@ -47,7 +47,8 @@ Resource/           Pipeline diagrams and result figures
 ```
 
 ## Contact
-- yooneige@gmail.com  
+- li.quanzheng@mgh.harvard.edu
+- yooneige@gmail.com
 - syoon5@mgh.harvard.edu  
 
 ## License
