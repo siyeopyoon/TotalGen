@@ -7,7 +7,7 @@ This repository implements a cascaded volumetric image synthesis pipeline that c
 - Demographic conditioning on height, weight, sex, and age  
 - Two-stage generation: low-resolution diffusion → super-resolution flow  
 - Modular scripts for data handling, training, inference, and evaluation  
-- Quantitative metrics: Dice, Hausdorff, intensity statistics  
+- Quantitative metrics/statistics  
 
 ## Repository Structure
 ```
