@@ -34,7 +34,7 @@ Resource/           Pipeline diagrams and result figures
 *Figure 2. Dataset and generated cohort BMI distributions.*
 
 ![Quantitative results](Resource/Picture2.png)  
-*Figure 3. Performance comparison across model variants.*
+*Figure 3. Performance comparison across model variants. Red: Male, and Blue: Female*
 
 ## Citation
 ```bibtex
